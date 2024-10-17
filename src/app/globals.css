@@ -3,21 +3,98 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-onest: "Onest", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-black);
+  background: var(--background-secondary);
+  font-family: "Onest", "Montserrat", sans-serif;
+}
+
+input {
+  outline: none;
+}
+
+textarea {
+  outline: none;
+  resize: none;
+}
+
+input,
+textarea {
+  transition: all 0.2s ease;
+}
+
+input:hover,
+textarea:hover {
+  border-color: black;
+}
+
+input:focus,
+textarea:focus {
+  border-color: black;
+}
+
+input:active,
+textarea:active {
+  border-color: black;
+}
+
+input:invalid:focus,
+textarea:invalid:focus {
+  border-color: red;
+}
+
+@layer components {
+  .input-primary {
+    @apply bg-transparent border border-gray-25 block w-full p-2.5 rounded-lg;
+  }
+
+  .input-secondary {
+    @apply bg-transparent border-b-2 border-gray-25 block w-full p-2.5;
+  }
+
+  .section {
+    @apply py-10 mobile:py-16 tablet:py-28;
+  }
+
+  .text-80 {
+    @apply tablet:text-9xl mobile:text-5xl text-3xl leading-10 mobile:leading-tight tablet:leading-snug;
+  }
+
+  .text-32 {
+    @apply tablet:text-3xl mobile:text-2xl text-xl leading-7 mobile:leading-8 tablet:leading-9;
+  }
+
+  .text-24 {
+    @apply tablet:text-xl mobile:text-sm text-2xs leading-6 mobile:leading-5 tablet:leading-8;
+  }
+
+  .text-22 {
+    @apply tablet:text-[22px] mobile:text-sm text-xs leading-5 mobile:leading-5 tablet:leading-8;
+  }
+
+  .text-18 {
+    @apply tablet:text-base mobile:text-xs text-xs leading-4 mobile:leading-4 tablet:leading-5;
+  }
+
+  .btn-primary {
+    @apply rounded font-onest font-medium text-xs bg-orange-100 text-white hover:bg-orange-0 ease-linear duration-100 tablet:px-10 tablet:py-3 mobile:px-8 mobile:py-2 px-6 py-2;
+  }
+
+  .btn-primary-inactive {
+    @apply bg-gray-50 text-gray-25;
+  }
+
+  .btn-secondary {
+    @apply text-24 rounded font-onest font-medium bg-black text-white hover:bg-black ease-linear duration-100 tablet:px-10 mobile:px-6 px-4 py-2;
+  }
+
+  .btn-secondary-inactive {
+    @apply bg-gray-100 text-gray-25 hover:text-white;
+  }
 }
 
 @layer utilities {
